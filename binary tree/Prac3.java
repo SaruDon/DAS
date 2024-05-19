@@ -56,7 +56,8 @@ public class Prac3 {
 
         getpath(root,k1,path1);
         getpath(root, k2, path2);
-
+        System.out.println(k1);
+        System.out.println(k2);
         int i = 0;
         for (; i < path1.size() && i< path2.size(); i++) {
             if (path1.get(i) != path2.get(i)) {
@@ -165,9 +166,10 @@ public class Prac3 {
         // System.out.println(lca(root, k1, k2).data);
         // System.out.println(lca2(root, k1, k2).data);s
         // System.out.println(distace(root, k1, k2));
-        // int n=5, k=2;
-        // System.out.println(lAncestor(root, n, k));
-        sumTres(root);
-        preOrder(root);
+        int n=5, k=2;
+        System.out.println(lAncestor(root, n, k));
+        System.out.println(lcaDistance(root, n));
+        // System.out.println(sumTres(root));
+        // preOrder(root); 
     }
 } 

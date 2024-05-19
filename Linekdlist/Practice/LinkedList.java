@@ -118,6 +118,20 @@ public class LinkedList{
         }
         return searchLLR(temp.next, key, i+1);
     }
+
+    public static void addAtIndex(int indx, int data){
+        Node newNode = new Node(data);
+        if (head == null) {
+            newNode= head = tail;
+            return;
+        }
+        Node temp = head;
+        for (int i = 0; i < indx-1; i++) {
+            temp= temp.next;
+        }
+        newNode.next= temp.next;
+        temp.next=newNode;
+    }
     
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -133,8 +147,10 @@ public class LinkedList{
         // System.out.println();
         // ll.printLL();
         // System.out.println(search(5));
-        System.out.println(searchLLR(head, 2, 0));
-
-
+        // System.out.println(searchLLR(head, 2, 0));
+        ll.printLL();
+        ll.addAtIndex(2, 7);
+        System.out.println();
+        ll.printLL();
     }
 }

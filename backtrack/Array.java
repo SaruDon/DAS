@@ -1,5 +1,3 @@
-
-
 public class Array {
 
     public static void arrayBack(int arr[],int i,int val) {

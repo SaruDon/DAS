@@ -53,7 +53,6 @@ public class mergeSort1 {
         pirntArray(arr);
     }
 }
-=======
 
 
 public class mergeSort1 {
@@ -98,7 +97,7 @@ public class mergeSort1 {
             temp[k++]=arr[j++];
         }
 
-        for(k=0,i=si; k<temp.length;k++,i++){
+        for(k=0,i=si; k<=ei;k++,i++){
             arr[i]=temp[k];
         }
     }
@@ -108,4 +107,4 @@ public class mergeSort1 {
         pirntArray(arr);
     }
 }
->>>>>>> 5f7b76f325310b072c0710ea99305cfd482d2e1f
+

@@ -178,17 +178,36 @@ public void zigZag() {
     }
 }
 
+
+public static void deleteAndSkip(Node head,int M ,int N){
+    Node temp = head;
+    while (temp.next!=null) {
+        for (int i = 0; i < M-1; i++) {
+            temp= temp.next;
+        }
+        Node remNode = temp;
+        for (int j = 0; j < N; j++) {
+            remNode=remNode.next;
+        }
+        temp.next= remNode;
+        temp=remNode;
+    }
+    
+}
+
 public static void main(String[] args) {
     Link li = new Link();
+    li.addFirst(7);
+    li.addFirst(6);
     li.addFirst(5);
     li.addFirst(4);
     li.addFirst(3);
     li.addFirst(2);
     li.addFirst(1);
-    
-    
+        
     
     li.printLL();
+    li.deleteAndSkip(head, 2, 2);
     // head = new Node(1);
     // Node temp = new Node(2);
     // head.next =temp;
@@ -206,7 +225,7 @@ public static void main(String[] args) {
     // ll.addFirst(2);
     // System.out.println(ll);
     // li.head= li.mergeSort(li.head);
-    li.zigZag();
-    li.printLL();
+    // li.zigZag();
+    // li.printLL();
 }
 }

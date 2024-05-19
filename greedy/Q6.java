@@ -39,8 +39,7 @@ public class Q6 {
         }
 
         System.out.println(time);
-        for (int i = 0; i < ans.size(); i++) {
-            System.out.print(ans.get(i)+" ");
-        }
+        System.out.println(ans);
+
     }
 }

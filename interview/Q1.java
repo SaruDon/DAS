@@ -18,10 +18,16 @@ public class Q1 {
         }
         return jumps;
     }
+
+    public static int mid(int a, int b){
+        return (b-a)/2 +a;
+    }
+
     public static void main(String[] args) {
         int arr[] ={11,11};
         int x =10;
         int y= 1;
-        System.out.println(jumpsCount(x, y, arr));
+        // System.out.println(jumpsCount(x, y, arr));
+        System.out.println(mid(0, 1));
     }
 }
