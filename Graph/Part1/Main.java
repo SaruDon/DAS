@@ -33,7 +33,31 @@ public class Main {
                 }
             }
         }
+    }
 
+    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean isVisisted[]) {
+        System.out.print(curr + " ");
+        isVisisted[curr] = true;
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            if (!isVisisted[e.dest]) {
+                dfs(graph, e.dest, isVisisted);
+            }
+        }
+    }
+
+    public static boolean hasPath(ArrayList<Edge> graph[], int src, int dest, boolean isVisisted[]) {
+        if (src == dest) {
+            return true;
+        }
+        isVisisted[src] = true;
+        for (int i = 0; i < graph[src].size(); i++) {
+            Edge e = graph[src].get(i);
+            if (!isVisisted[e.dest] && hasPath(graph, e.dest, dest, isVisisted)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void createGraph(ArrayList<Edge> graph[]) {
@@ -102,6 +126,8 @@ public class Main {
         int v = 7;
         ArrayList<Edge>[] graph = new ArrayList[v];
         createGraph(graph);
-        bfs(graph);
+        // bfs(graph);
+        // dfs(graph, 0, new boolean[v]);
+        System.out.println(hasPath(graph, 0, 7, new boolean[v]));
     }
 }
