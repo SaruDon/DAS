@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AreaOfCircle",
+            "request": "launch",
+            "mainClass": "AreaOfCircle",
+            "projectName": "Java_2b218449"
+        },
+        {
+            "type": "java",
             "name": "subSet",
             "request": "launch",
             "mainClass": "subSet",

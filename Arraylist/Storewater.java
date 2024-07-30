@@ -1,6 +1,8 @@
+
 import java.util.ArrayList;
 
 public class Storewater {
+    //Q)24
 
     // public static int  capacity(ArrayList<Integer> height) {
     //     int max =0;
@@ -14,24 +16,24 @@ public class Storewater {
     //     }
     //     return max;
     // }
-
-    public static int  capacity(ArrayList<Integer> height) {
+    public static int capacity(ArrayList<Integer> height) {
         int max = 0;
         int lp = 0;
-        int rp = height.size()-1;
+        int rp = height.size() - 1;
         while (lp < rp) {
             int ht = Math.min(height.get(lp), height.get(rp));
-            int width = rp-lp;
-            int totalCapacity = ht*width;
+            int width = rp - lp;
+            int totalCapacity = ht * width;
             max = Math.max(max, totalCapacity);
-            if(lp<rp){
+            if (lp < rp) {
                 lp++;
-            }else{
+            } else {
                 rp--;
             }
         }
         return max;
     }
+
     public static void main(String[] args) {
         ArrayList<Integer> height = new ArrayList<>();
         height.add(1);

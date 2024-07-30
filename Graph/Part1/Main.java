@@ -19,29 +19,51 @@ public class Main {
     }
 
     public static void bfs(ArrayList<Edge>[] graph) {
+        boolean isVisited[] = new boolean[graph.length];
+        for (int i = 0; i < isVisited.length; i++) {
+            if (!isVisited[i]) {
+                UtilBfs(graph, i, isVisited);
+            }
+        }
+    }
+
+    public static void UtilBfs(ArrayList<Edge>[] graph, int start, boolean isVisited[]) {
         Queue<Integer> q = new LinkedList<>();
-        boolean isVisisted[] = new boolean[graph.length];
-        q.add(0);
+
+        q.add(start);
         while (!q.isEmpty()) {
             int curr = q.remove();
-            if (!isVisisted[curr]) {
-                System.out.println(curr + " ");
-                isVisisted[curr] = true;
+            if (!isVisited[curr]) {
+                System.out.print(curr + " ");
+                isVisited[curr] = true;
                 for (int i = 0; i < graph[curr].size(); i++) {
                     Edge e = graph[curr].get(i);
-                    q.add(e.dest);
+                    if (!isVisited[e.dest]) {
+                        q.add(e.dest);
+                    }
                 }
             }
         }
     }
 
-    public static void dfs(ArrayList<Edge>[] graph, int curr, boolean isVisisted[]) {
+    public static void dfs(ArrayList<Edge>[] graph) {
+        boolean isVisited[] = new boolean[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            if (!isVisited[i]) {
+                utilDfs(graph, i, isVisited);
+            }
+        }
+    }
+
+    public static void utilDfs(ArrayList<Edge>[] graph, int curr, boolean isVisited[]) {
+
         System.out.print(curr + " ");
-        isVisisted[curr] = true;
+        isVisited[curr] = true;
+
         for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if (!isVisisted[e.dest]) {
-                dfs(graph, e.dest, isVisisted);
+            if (!isVisited[e.dest]) {
+                utilDfs(graph, e.dest, isVisited);
             }
         }
     }
@@ -126,8 +148,8 @@ public class Main {
         int v = 7;
         ArrayList<Edge>[] graph = new ArrayList[v];
         createGraph(graph);
-        // bfs(graph);
-        // dfs(graph, 0, new boolean[v]);
-        System.out.println(hasPath(graph, 0, 7, new boolean[v]));
+        bfs(graph);
+        // dfs(graph);
+        // System.out.println(hasPath(graph, 0, 7, new boolean[v]));
     }
 }
